@@ -257,3 +257,37 @@ cat("\n\n═══════════════════════�
 cat("ANÁLISE CONCLUÍDA\n")
 cat("Gráficos salvos em:", PASTA_OUTPUTS, "\n")
 cat("═══════════════════════════════════════\n")
+
+
+# ─── EXIBIR GRÁFICOS NO R ────────────────────────────────────
+print(p_meteor)
+print(p_cosseno)
+print(p_tokens)
+print(p_scatter_tokens)
+print(p_scatter_tempo)
+
+# ─── TABELAS COMPARATIVAS ────────────────────────────────────
+library(tidyr)
+
+# função auxiliar para montar tabela wide
+tabela_wide <- function(df, coluna) {
+  resumo %>%
+    select(pipeline, modelo, valor = all_of(coluna)) %>%
+    pivot_wider(names_from = pipeline, values_from = valor) %>%
+    rename(Modelo = modelo)
+}
+
+cat("\n═══════════════════════════════════════\n")
+cat("TABELA — METEOR por Pipeline\n")
+cat("═══════════════════════════════════════\n")
+print(tabela_wide(resumo, "METEOR"))
+
+cat("\n═══════════════════════════════════════\n")
+cat("TABELA — Cosseno por Pipeline\n")
+cat("═══════════════════════════════════════\n")
+print(tabela_wide(resumo, "Cosseno"))
+
+cat("\n═══════════════════════════════════════\n")
+cat("TABELA — Tokens por Pipeline\n")
+cat("═══════════════════════════════════════\n")
+print(tabela_wide(resumo, "Tokens"))
