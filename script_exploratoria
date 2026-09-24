@@ -1,0 +1,35 @@
+from datasets import load_dataset
+import pandas as pd
+import numpy as np
+
+# carregar os dois subsets
+qa     = load_dataset("rag-datasets/rag-mini-bioasq", "question-answer-passages")
+corpus = load_dataset("rag-datasets/rag-mini-bioasq", "text-corpus")
+
+# converter para dataframe
+df_qa     = pd.DataFrame(qa["test"])
+df_corpus = pd.DataFrame(corpus["passages"])
+
+# visão geral
+print("=== Perguntas ===")
+print(df_qa.shape)
+print(df_qa.columns.tolist())
+print(df_qa.head(3))
+
+print("\n=== Corpus ===")
+print(df_corpus.shape)
+print(df_corpus.columns.tolist())
+print(df_corpus.head(3))
+
+# tamanho dos trechos
+tamanhos = df_corpus["passage"].str.split().str.len()
+print(f"\nTamanho dos trechos (palavras):")
+print(f"  Média:  {tamanhos.mean():.0f}")
+print(f"  Mediana:{tamanhos.median():.0f}")
+print(f"  Mín:    {tamanhos.min()}")
+print(f"  Máx:    {tamanhos.max()}")
+
+# quantos trechos por pergunta
+df_qa["n_passages"] = df_qa["relevant_passage_ids"].apply(len)
+print(f"\nTrechos por pergunta:")
+print(df_qa["n_passages"].describe())
