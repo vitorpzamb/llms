@@ -64,8 +64,8 @@ p_meteor <- ggplot(resumo, aes(x = pipeline, y = METEOR, fill = modelo)) +
             vjust = -0.5, size = 3.5) +
   scale_fill_manual(values = c(
     "LLaMA 3 (8B)"  = "#1a5cff",
-    "Mistral (7B)"  = "#e84c1e",
-    "Gemma (2B)"    = "#2db36f"
+    "Mistral (7B)"  = "#5b8dee",
+    "Gemma (2B)"    = "#a8c4f5"
   )) +
   labs(
     title    = "Qualidade das Respostas por Pipeline (METEOR)",
@@ -94,8 +94,8 @@ p_cosseno <- ggplot(resumo, aes(x = pipeline, y = Cosseno, fill = modelo)) +
             vjust = -0.5, size = 3.5) +
   scale_fill_manual(values = c(
     "LLaMA 3 (8B)"  = "#1a5cff",
-    "Mistral (7B)"  = "#e84c1e",
-    "Gemma (2B)"    = "#2db36f"
+    "Mistral (7B)"  = "#5b8dee",
+    "Gemma (2B)"    = "#a8c4f5"
   )) +
   labs(
     title    = "Similaridade Semântica por Pipeline (Cosseno)",
@@ -124,8 +124,8 @@ p_tokens <- ggplot(resumo, aes(x = pipeline, y = Tokens, fill = modelo)) +
             vjust = -0.5, size = 3.5) +
   scale_fill_manual(values = c(
     "LLaMA 3 (8B)"  = "#1a5cff",
-    "Mistral (7B)"  = "#e84c1e",
-    "Gemma (2B)"    = "#2db36f"
+    "Mistral (7B)"  = "#5b8dee",
+    "Gemma (2B)"    = "#a8c4f5"
   )) +
   labs(
     title    = "Tokens Consumidos por Pipeline",
@@ -148,8 +148,8 @@ cat("✓ Salvo: grafico_tokens.png\n")
 # ─── 6. SCATTER — QUALIDADE × TOKENS ─────────────────────────
 cores_modelo <- c(
   "LLaMA 3 (8B)"  = "#1a5cff",
-  "Mistral (7B)"  = "#e84c1e",
-  "Gemma (2B)"    = "#2db36f"
+  "Mistral (7B)"  = "#5b8dee",
+  "Gemma (2B)"    = "#a8c4f5"
 )
 formas_pipeline <- c(
   "1. LLM Base"        = 16,
