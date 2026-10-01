@@ -240,6 +240,7 @@ def rodar_p1(modelo, df_perguntas):
                 "tempo_s":round(t,2),"tokens_prompt":tp,
                 "tokens_resposta":tr,"tokens_total":tp+tr
             }, COLUNAS_BASE, lock)
+            print(f"    [P1][{modelo}] {row['id']} | {time.strftime('%H:%M:%S')}")
         except Exception as e:
             print(f"    [P1][{modelo}] ERRO {row['id']}: {e}")
 
@@ -264,6 +265,7 @@ def rodar_p2(modelo, df_perguntas):
                 "trechos_usados":" ||| ".join(trechos),
                 "dist_media_rag":round(dist,4)
             }, COLUNAS_RAG, lock)
+            print(f"    [P2][{modelo}] {row['id']} | {time.strftime('%H:%M:%S')}")
         except Exception as e:
             print(f"    [P2][{modelo}] ERRO {row['id']}: {e}")
 
@@ -290,6 +292,7 @@ def rodar_p3(modelo, df_perguntas):
                 "dist_media_rag":round(_, 4) if isinstance(_, float) else 0,
                 "score_medio_bert":score
             }, COLUNAS_BERT, lock)
+            print(f"    [P3][{modelo}] {row['id']} | {time.strftime('%H:%M:%S')}")
         except Exception as e:
             print(f"    [P3][{modelo}] ERRO {row['id']}: {e}")
 
@@ -318,6 +321,7 @@ def rodar_p4(modelo, df_perguntas):
                 "cluster_escolhido":cl,
                 "sim_cluster":sim
             }, COLUNAS_CLUSTER, lock)
+            print(f"    [P4][{modelo}] {row['id']} | {time.strftime('%H:%M:%S')}")
         except Exception as e:
             print(f"    [P4][{modelo}] ERRO {row['id']}: {e}")
 
