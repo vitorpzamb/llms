@@ -304,3 +304,15 @@ with open(f"{PASTA_OUTPUTS}/tempo_maquina1.txt", "w") as f:
             f.write(g.to_string() + "\n")
 
 print(f"\nResumo salvo em: {PASTA_OUTPUTS}/tempo_maquina1.txt")
+
+#########
+
+# SE DER PROBLEMA -> Matar terminal (lixeira canto superior direito) -> abrir novo terminal (Terminal -> New Terminal)
+
+# escrever o seguinte comando (copia e cola no terminal):
+
+# primeira linha -> Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -> aperta enter
+
+# segunda linha -> venv\Scripts\activate -> aperta enter (aqui ativou de novo a maquina virtual) -> enter
+
+# terceira linha (colocar o codigo pra rodar de novo) -> python scripts_maquina/pipeline_maquina1.py -> enter

@@ -2,4 +2,3 @@
 chroma_db/
 __pycache__/
 *.png
-*.csv
