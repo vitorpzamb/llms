@@ -1,0 +1,15 @@
+Tempo total: 26.97h
+
+P2_LLM_RAG:
+          meteor  cosseno  tempo_total_s  tokens_total
+modelo                                                
+gemma:2b  0.2574   0.6927         2.8339     1686.6777
+llama3    0.3219   0.7330         4.7121     1706.7930
+mistral   0.3294   0.7438         4.5027     2022.4096
+
+P4_LLM_RAG_CLUS:
+          meteor  cosseno  tempo_total_s  tokens_total
+modelo                                                
+gemma:2b  0.2226   0.6723         2.7761     1154.4471
+llama3    0.2842   0.7051         4.4078     1183.4499
+mistral   0.2925   0.7181         4.1344     1391.1276
